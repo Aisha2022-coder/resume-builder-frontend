@@ -26,7 +26,8 @@ export default function SkillsForm({ setIsFormSubmitted, closeModal }) {
     const userID = localStorage.getItem("userID");
 
     try {
-      const response = await fetch("http://localhost:5000/api/skills", {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL;
+      const response = await fetch(`${API_URL}/api/skills`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userID, skills: skillEntries }),

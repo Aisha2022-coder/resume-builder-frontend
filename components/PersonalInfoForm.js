@@ -18,9 +18,10 @@ export default function PersonalInfoForm({ closeModal, setIsFormSubmitted }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userID = localStorage.getItem("userID");
-  
-    try { 
-      const response = await fetch("http://localhost:5000/api/personal-info", {
+
+    try {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL;
+      const response = await fetch(`${API_URL}/api/personal-info`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +48,7 @@ export default function PersonalInfoForm({ closeModal, setIsFormSubmitted }) {
       console.error("Error submitting form:", error);
       toast.error("An error occurred. Try again!");
     }
-  };  
+  };
 
   return (
     <>

@@ -26,7 +26,8 @@ export default function AchievementsForm({ setIsFormSubmitted, closeModal }) {
     const userID = localStorage.getItem("userID");
 
     try {
-      const response = await fetch("http://localhost:5000/api/achievements", {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL;
+      const response = await fetch(`${API_URL}/api/achievements`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userID, achievements }),
@@ -34,10 +35,10 @@ export default function AchievementsForm({ setIsFormSubmitted, closeModal }) {
 
       if (response.ok) {
         if (setIsFormSubmitted) {
-          setIsFormSubmitted(true); 
+          setIsFormSubmitted(true);
         }
         toast.success("Achievements saved successfully!");
-        setTimeout(() => closeModal(), 2000); 
+        setTimeout(() => closeModal(), 2000);
       } else {
         toast.error("Failed to save achievements.");
       }

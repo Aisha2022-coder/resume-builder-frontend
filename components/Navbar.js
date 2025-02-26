@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { HiMenu, HiX } from "react-icons/hi";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+
 const Navbar = () => {
   const [user, setUser] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +21,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/user", {
+        const response = await fetch(`${API_URL}/api/auth/user`, {
           method: "GET",
           credentials: "include",
         });
@@ -44,7 +46,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/auth/logout", {
+      const response = await fetch(`${API_URL}/api/auth/logout`, {
         method: "GET",
         credentials: "include",
       });
@@ -89,7 +91,7 @@ const Navbar = () => {
             </button>
           </>
         ) : (
-          <a href="http://localhost:5000/api/auth/google">
+          <a href={`${API_URL}/api/auth/google`}>
             <button className="bg-blue-500 text-white font-bold p-2 border-none rounded-lg w-20">
               Login
             </button>
@@ -120,7 +122,7 @@ const Navbar = () => {
               </button>
             </>
           ) : (
-            <a href="http://localhost:5000/api/auth/google">
+            <a href={`${API_URL}/api/auth/google`}>
               <button className="bg-blue-500 text-white font-bold p-2 border-none rounded-lg w-20">
                 Login
               </button>
