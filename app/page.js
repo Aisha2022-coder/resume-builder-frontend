@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -20,8 +21,24 @@ export default function Home() {
       </div>
 
       <div className="right flex justify-center items-center relative w-full md:w-1/2 mt-6 md:mt-0 z-0 sm:pl-6 md:pl-12 lg:pl-24 xl:pl-32 2xl:pl-40 flex-grow">
-        <img className="h-40 w-40 sm:h-[180px] sm:w-[180px] md:h-[220px] md:w-[220px] lg:h-[250px] lg:w-[250px] xl:h-[280px] xl:w-[280px] 2xl:h-[300px] 2xl:w-[300px] md:relative md:left-auto max-w-full" src="/my-resume.png" alt="resume" />
-        <img className="h-60 w-60 sm:h-[240px] sm:w-[240px] md:h-[320px] md:w-[320px] lg:h-[400px] lg:w-[400px] xl:h-[450px] xl:w-[450px] 2xl:h-[480px] 2xl:w-[480px] relative z-0 max-w-full" src="/resume-builder.avif" alt="resume builder" />
+        <div className="relative h-40 w-40 sm:h-[180px] sm:w-[180px] md:h-[220px] md:w-[220px] lg:h-[250px] lg:w-[250px] xl:h-[280px] xl:w-[280px] 2xl:h-[300px] 2xl:w-[300px]">
+          <Image
+            src="/my-resume.png"
+            alt="resume"
+            layout="fill"
+            objectFit="contain"
+            priority
+          />
+        </div>
+        <div className="relative h-60 w-60 sm:h-[240px] sm:w-[240px] md:h-[320px] md:w-[320px] lg:h-[400px] lg:w-[400px] xl:h-[450px] xl:w-[450px] 2xl:h-[480px] 2xl:w-[480px]">
+          <Image
+            src="/resume-builder.avif"
+            alt="resume builder"
+            layout="fill"
+            objectFit="contain"
+            priority
+          />
+        </div>
       </div>
     </div>
   );

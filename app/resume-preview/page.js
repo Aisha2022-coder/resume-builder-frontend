@@ -7,6 +7,7 @@ import Link from "next/link";
 import DefaultTemplate from "@/components/templates/DefaultTemplate";
 import ModernTemplate from "@/components/templates/ModernTemplate";
 import CreativeTemplate from "@/components/templates/CreativeTemplate";
+import Image from "next/image";
 
 export default function ResumePreview() {
   const router = useRouter();
@@ -59,7 +60,7 @@ export default function ResumePreview() {
       }
     };
     fetchResumeData();
-  }, []);
+  }, [router]);
 
   const getSelectedTemplate = () => {
     if (!resumeData) return <p>Loading...</p>;
@@ -80,16 +81,16 @@ export default function ResumePreview() {
       useCORS: true,
       scrollY: -window.scrollY,
     }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
+      const ImageData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("p", "mm", "a4");
-      const imgWidth = 210;
+      const ImageWidth = 210;
       const pageHeight = 297;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      const ImageHeight = (canvas.height * ImageWidth) / canvas.width;
       let yPosition = 0;
-      while (yPosition < imgHeight) {
-        pdf.addImage(imgData, "PNG", 0, -yPosition, imgWidth, imgHeight);
+      while (yPosition < ImageHeight) {
+        pdf.addImage(ImageData, "PNG", 0, -yPosition, ImageWidth, ImageHeight);
         yPosition += pageHeight;
-        if (yPosition < imgHeight) pdf.addPage();
+        if (yPosition < ImageHeight) pdf.addPage();
       }
       pdf.save("resume.pdf");
     });
@@ -103,9 +104,9 @@ export default function ResumePreview() {
       </div>
 
       <div className="flex flex-wrap justify-center gap-4 mt-6">
-        <button onClick={downloadPDF} className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-3 text-sm sm:text-base md:text-lg rounded-lg font-bold"><img className="w-5 h-5" src="download.svg" alt="download" />Download PDF</button>
+        <button onClick={downloadPDF} className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-3 text-sm sm:text-base md:text-lg rounded-lg font-bold"><Image src="download.svg" alt="download" width={20} height={20} priority />Download PDF</button>
         <Link href="/dashboard">
-          <button className="flex items-center gap-2 bg-gray-700 text-white px-4 py-2 sm:px-5 sm:py-3 text-sm sm:text-base md:text-lg rounded-lg font-bold"><img className="w-5 h-5" src="edit.svg" alt="edit" />Edit Resume</button>
+          <button className="flex items-center gap-2 bg-gray-700 text-white px-4 py-2 sm:px-5 sm:py-3 text-sm sm:text-base md:text-lg rounded-lg font-bold"><Image src="edit.svg" alt="edit" width={20} height={20} priority />Edit Resume</button>
         </Link>
       </div>
     </div>

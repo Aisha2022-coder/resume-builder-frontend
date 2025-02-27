@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { HiMenu, HiX } from "react-icons/hi";
+import Image from "next/image";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
@@ -42,7 +43,7 @@ const Navbar = () => {
     };
 
     fetchUser();
-  }, []);
+  }, [router]);
 
   const handleLogout = async () => {
     try {
@@ -66,7 +67,14 @@ const Navbar = () => {
   return (
     <nav className="bg-blend-darken bg-blue-950 text-white flex justify-between items-center p-4 sticky top-0 z-50 px-4 md:px-12 w-full min-w-full">
       <div className="logo font-bold text-lg flex items-center gap-2 whitespace-nowrap">
-        <img className="h-10 w-30 mx-auto" src="/logo.png" alt="logo" />
+        <Image
+          src="/logo.png"
+          alt="logo"
+          width={120}
+          height={40}
+          className="mx-auto"
+          priority
+        />
         Resume-Builder
       </div>
 
@@ -84,7 +92,14 @@ const Navbar = () => {
       <div className="hidden lg:flex items-center gap-4">
         {user ? (
           <>
-            <img className="h-8 w-8 rounded-full" src={user.picture || "/user-avatar.jpeg"} alt="User Avatar" />
+            <Image
+              className="h-8 w-8 rounded-full"
+              src={user.picture || "/user-avatar.jpeg"}
+              alt="User Avatar"
+              width={32}
+              height={32}
+              priority
+            />
             <span>{user.name}</span>
             <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded-md">
               Logout
@@ -115,7 +130,14 @@ const Navbar = () => {
           </ul>
           {user ? (
             <>
-              <img className="h-8 w-8 rounded-full" src={user.picture || "/user-avatar.jpeg"} alt="User Avatar" />
+              <Image
+                className="h-8 w-8 rounded-full"
+                src={user.picture || "/user-avatar.jpeg"}
+                alt="User Avatar"
+                width={32}
+                height={32}
+                priority
+              />
               <span>{user.name}</span>
               <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded-md">
                 Logout

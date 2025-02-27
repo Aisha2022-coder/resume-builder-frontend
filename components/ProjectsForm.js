@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Image from "next/image";
 
 export default function ProjectsForm({ setIsFormSubmitted, closeModal }) {
   const [projectEntries, setProjectEntries] = useState([
@@ -105,7 +106,7 @@ export default function ProjectsForm({ setIsFormSubmitted, closeModal }) {
                     type="button"
                     onClick={() => removeProjectEntry(index)}
                     className="flex items-center gap-2 mt-1 px-2 py-1 bg-red-500 text-white text-xs rounded"
-                  ><img className="w-5 h-5" src="subtract.svg" alt="subtract" /> Remove
+                  ><Image src="subtract.svg" alt="subtract" width={20} height={20} priority /> Remove
                   </button>
                 )}
               </div>
@@ -116,7 +117,7 @@ export default function ProjectsForm({ setIsFormSubmitted, closeModal }) {
                 type="button"
                 onClick={addProjectEntry}
                 className="flex items-center gap-2 px-3 py-1 bg-green-500 text-white text-sm rounded"
-              ><img className="w-5 h-5" src="add.svg" alt="add" /> Add Another
+              ><Image src="add.svg" alt="add" width={20} height={20} priority /> Add Another
               </button>
             </div>
 
