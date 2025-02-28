@@ -43,7 +43,7 @@ const Navbar = () => {
     };
 
     fetchUser();
-  }, [router]);
+  }, []);
 
   const handleLogout = async () => {
     try {
@@ -66,25 +66,35 @@ const Navbar = () => {
 
   return (
     <nav className="bg-blend-darken bg-blue-950 text-white flex justify-between items-center p-4 sticky top-0 z-50 px-4 md:px-12 w-full min-w-full">
-      <div className="logo font-bold text-lg flex items-center gap-2 whitespace-nowrap">
-        <Image
-          src="/logo.png"
-          alt="logo"
-          width={120}
-          height={40}
-          className="mx-auto"
-          priority
-        />
+      <div className="logo font-bold text-lg flex items-center gap-0.5 whitespace-nowrap">
+        {/* Responsive Logo Container */}
+        <div className="relative h-8 w-20">
+          <Image
+            src="/logo.png"
+            alt="logo"
+            fill
+            className="object-contain"
+            sizes="80px"
+          />
+        </div>
         Resume-Builder
       </div>
 
       <div className="hidden lg:flex justify-center flex-grow w-full">
         {!isDashboardPage && !isResumePreviewPage && !isContactPage && (
           <ul className="flex space-x-10 w-full max-w-[500px]">
-            <li className="cursor-pointer"><Link href="/">Home</Link></li>
-            <li className="cursor-pointer"><Link href="/dashboard">Dashboard</Link></li>
-            <li className="cursor-pointer"><Link href="/resume-preview">Preview</Link></li>
-            <li className="cursor-pointer"><Link href="/contact">Contact</Link></li>
+            <li className="cursor-pointer">
+              <Link href="/">Home</Link>
+            </li>
+            <li className="cursor-pointer">
+              <Link href="/dashboard">Dashboard</Link>
+            </li>
+            <li className="cursor-pointer">
+              <Link href="/resume-preview">Preview</Link>
+            </li>
+            <li className="cursor-pointer">
+              <Link href="/contact">Contact</Link>
+            </li>
           </ul>
         )}
       </div>
@@ -92,16 +102,20 @@ const Navbar = () => {
       <div className="hidden lg:flex items-center gap-4">
         {user ? (
           <>
-            <Image
-              className="h-8 w-8 rounded-full"
-              src={user.picture || "/user-avatar.jpeg"}
-              alt="User Avatar"
-              width={32}
-              height={32}
-              priority
-            />
+            <div className="relative h-8 w-20">
+              <Image
+                src="/logo.png"
+                alt="logo"
+                fill
+                className="object-contain"
+                sizes="80px"
+              />
+            </div>
             <span>{user.name}</span>
-            <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded-md">
+            <button
+              onClick={handleLogout}
+              className="bg-red-500 px-3 py-1 rounded-md"
+            >
               Logout
             </button>
           </>
@@ -116,17 +130,29 @@ const Navbar = () => {
 
       <div className="lg:hidden flex items-center gap-4">
         <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <HiX className="text-2xl cursor-pointer" /> : <HiMenu className="text-2xl cursor-pointer" />}
+          {isMenuOpen ? (
+            <HiX className="text-2xl cursor-pointer" />
+          ) : (
+            <HiMenu className="text-2xl cursor-pointer" />
+          )}
         </div>
       </div>
 
       {isMenuOpen && (
         <div className="absolute top-full right-0 bg-blue-950 w-full flex flex-col items-center p-4 space-y-4 shadow-lg rounded-lg lg:hidden z-50">
           <ul className="flex flex-col items-center space-y-3 text-white text-lg w-full">
-            <li className="cursor-pointer w-full text-center"><Link href="/">Home</Link></li>
-            <li className="cursor-pointer w-full text-center"><Link href="/dashboard">Dashboard</Link></li>
-            <li className="cursor-pointer w-full text-center"><Link href="/resume-preview">Preview</Link></li>
-            <li className="cursor-pointer w-full text-center"><Link href="/contact">Contact</Link></li>
+            <li className="cursor-pointer w-full text-center">
+              <Link href="/">Home</Link>
+            </li>
+            <li className="cursor-pointer w-full text-center">
+              <Link href="/dashboard">Dashboard</Link>
+            </li>
+            <li className="cursor-pointer w-full text-center">
+              <Link href="/resume-preview">Preview</Link>
+            </li>
+            <li className="cursor-pointer w-full text-center">
+              <Link href="/contact">Contact</Link>
+            </li>
           </ul>
           {user ? (
             <>
@@ -139,7 +165,10 @@ const Navbar = () => {
                 priority
               />
               <span>{user.name}</span>
-              <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded-md">
+              <button
+                onClick={handleLogout}
+                className="bg-red-500 px-3 py-1 rounded-md"
+              >
                 Logout
               </button>
             </>
@@ -157,6 +186,11 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+
+
 
 
 

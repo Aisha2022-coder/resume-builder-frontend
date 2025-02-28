@@ -1,11 +1,10 @@
-"use client"
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-20 min-h-screen w-full relative overflow-hidden">
-
       <div className="left flex flex-col items-center md:items-start justify-center text-center md:text-left h-full w-full md:w-1/2 p-4 z-10 relative sm:pr-6 md:pr-12 flex-grow">
         <div className="text-white text-3xl md:text-4xl font-bold leading-tight">
           Build your Resume
@@ -20,29 +19,40 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="right flex justify-center items-center relative w-full md:w-1/2 mt-6 md:mt-0 z-0 sm:pl-6 md:pl-12 lg:pl-24 xl:pl-32 2xl:pl-40 flex-grow">
-        <div className="relative h-40 w-40 sm:h-[180px] sm:w-[180px] md:h-[220px] md:w-[220px] lg:h-[250px] lg:w-[250px] xl:h-[280px] xl:w-[280px] 2xl:h-[300px] 2xl:w-[300px]">
-          <Image
-            src="/my-resume.png"
-            alt="resume"
-            layout="fill"
-            objectFit="contain"
-            priority
-          />
-        </div>
-        <div className="relative h-60 w-60 sm:h-[240px] sm:w-[240px] md:h-[320px] md:w-[320px] lg:h-[400px] lg:w-[400px] xl:h-[450px] xl:w-[450px] 2xl:h-[480px] 2xl:w-[480px]">
-          <Image
-            src="/resume-builder.avif"
-            alt="resume builder"
-            layout="fill"
-            objectFit="contain"
-            priority
-          />
+      <div className="right relative w-full md:w-1/2 mt-6 md:mt-0 z-0 sm:pl-6 md:pl-12 lg:pl-24 xl:pl-32 2xl:pl-40 flex-grow mr-4">
+        <div className="relative w-full h-[80vh]">
+          <div className="relative w-full h-full">
+            <Image
+              src="/resume-builder.avif"
+              alt="resume builder"
+              fill
+              style={{ objectFit: "contain" }}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+            />
+          </div>
+          <div className="absolute left-0 top-0 h-[80%] w-[50%]">
+            <Image
+              src="/my-resume.png"
+              alt="resume"
+              fill
+              style={{ objectFit: "contain" }}
+              sizes="(max-width: 768px) 100vw, 25vw"
+              priority
+            />
+          </div>
         </div>
       </div>
     </div>
   );
 }
+
+
+
+
+
+
+
 
 
 

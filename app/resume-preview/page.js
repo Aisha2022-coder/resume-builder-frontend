@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import Link from "next/link";
-import DefaultTemplate from "@/components/templates/DefaultTemplate";
-import ModernTemplate from "@/components/templates/ModernTemplate";
-import CreativeTemplate from "@/components/templates/CreativeTemplate";
+import DefaultTemplate from "../components/templates/DefaultTemplate";
+import ModernTemplate from "../components/templates/ModernTemplate";
+import CreativeTemplate from "../components/templates/CreativeTemplate";
 import Image from "next/image";
 
 export default function ResumePreview() {
