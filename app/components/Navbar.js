@@ -45,7 +45,6 @@ const Navbar = () => {
 
     fetchUser();
 
-    // Add scroll listener for navbar background effect
     const handleScroll = () => {
       if (window.scrollY > 30) {
         setScrolled(true);
@@ -77,7 +76,6 @@ const Navbar = () => {
     }
   };
 
-  // Close menu when clicking a link on mobile
   const handleLinkClick = () => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
@@ -88,7 +86,6 @@ const Navbar = () => {
     <nav className={`${scrolled ? 'bg-blue-950/95 backdrop-blur-sm shadow-lg' : 'bg-blue-950'} text-white sticky top-0 z-50 w-full transition-all duration-300`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
       <div className="flex justify-between items-center h-16 relative">
-          {/* Logo */}
           <div className="flex items-center flex-shrink-0">
             <div className="logo font-bold text-lg flex items-center gap-2 whitespace-nowrap hover:scale-105 transition-transform duration-300">
               <div className="relative h-8 w-12">
@@ -103,8 +100,6 @@ const Navbar = () => {
               <span className="text-xl font-extrabold bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent">Resume-Builder</span>
             </div>
           </div>
-
-          {/* Desktop Navigation - Modified flex properties */}
           <div className="hidden lg:flex items-center justify-center">
             {!isDashboardPage && !isResumePreviewPage && !isContactPage && (
               <ul className="flex space-x-6">
@@ -143,8 +138,6 @@ const Navbar = () => {
               </ul>
             )}
           </div>
-
-           {/* User Section - Desktop - Modified spacing */}
           <div className="hidden lg:flex items-center flex-shrink-0 ml-4">
             {user ? (
               <div className="flex items-center gap-3 bg-blue-900/60 px-4 py-1.5 rounded-full">
@@ -173,8 +166,6 @@ const Navbar = () => {
               </a>
             )}
           </div>
-
-          {/* Mobile menu button */}
           <div className="lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -190,8 +181,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
-      {/* Mobile menu, show/hide based on menu state */}
       <div
         className={`lg:hidden transition-all duration-300 ease-in-out transform ${
           isMenuOpen
@@ -237,8 +226,6 @@ const Navbar = () => {
             Contact
           </Link>
         </div>
-        
-        {/* Mobile user section */}
         <div className="pt-4 pb-3 border-t border-blue-700 bg-blue-900/90">
           <div className="flex items-center px-4">
             {user ? (

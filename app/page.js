@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 md:px-12 lg:px-20 min-h-[85vh] w-full relative overflow-hidden py-8 md:py-0">
       <div className="flex flex-col items-center md:items-start justify-center text-center md:text-left w-full md:w-1/2 z-10 relative order-2 md:order-1 mt-8 md:mt-0 px-4">
-      <div className="w-full max-w-[450px] mx-auto md:mx-0">
+        <div className="w-full max-w-[450px] mx-auto md:mx-0">
           <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight animate-fadeIn mb-4 md:mb-6">
             Create Your <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Professional</span> Resume
           </h1>
@@ -24,11 +24,9 @@ export default function Home() {
       </div>
 
       <div className="w-full md:w-1/2 order-1 md:order-2 z-0 flex justify-center items-center mb-8 md:mb-0">
-      <div className="relative w-[95%] max-w-[500px] h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] mobile-img-container">          {/* Decorative Elements */}
+        <div className="relative w-[95%] max-w-[500px] h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] mobile-img-container">
           <div className="hidden sm:block absolute w-24 h-24 bg-blue-500 opacity-20 rounded-full -top-10 -right-10 animate-pulse"></div>
-          <div className="hidden sm:block absolute w-16 h-16 bg-purple-500 opacity-20 rounded-full bottom-10 -left-10 animate-pulse" style={{animationDelay: "1s"}}></div>
-          
-          {/* Main Resume Builder Image */}
+          <div className="hidden sm:block absolute w-16 h-16 bg-purple-500 opacity-20 rounded-full bottom-10 -left-10 animate-pulse" style={{ animationDelay: "1s" }}></div>
           <div className="relative w-full h-full">
             <Image
               src="/resume-builder.avif"
@@ -40,7 +38,6 @@ export default function Home() {
               className="animate-float rounded-lg shadow-2xl"
             />
           </div>
-          {/* Resume image - repositioned for better mobile display */}
           <div className="absolute left-0 top-0 h-[85%] w-[55%] sm:h-[80%] sm:w-[50%]">
             <Image
               src="/my-resume.png"
@@ -54,10 +51,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
-      {/* Mobile-specific decorative elements */}
       <div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-t-3xl block md:hidden"></div>
-      </main>
+    </main>
   );
 }
 
