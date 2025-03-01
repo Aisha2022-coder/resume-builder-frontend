@@ -4,46 +4,60 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-20 min-h-screen w-full relative overflow-hidden">
-      <div className="left flex flex-col items-center md:items-start justify-center text-center md:text-left h-full w-full md:w-1/2 p-4 z-10 relative sm:pr-6 md:pr-12 flex-grow">
-        <div className="text-white text-3xl md:text-4xl font-bold leading-tight">
-          Build your Resume
+    <main className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 md:px-12 lg:px-20 min-h-[85vh] w-full relative overflow-hidden py-8 md:py-0">
+      <div className="flex flex-col items-center md:items-start justify-center text-center md:text-left w-full md:w-1/2 z-10 relative order-2 md:order-1 mt-8 md:mt-0 px-4">
+      <div className="w-full max-w-[450px] mx-auto md:mx-0">
+          <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight animate-fadeIn mb-4 md:mb-6">
+            Create Your <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Professional</span> Resume
+          </h1>
+          <p className="text-base sm:text-lg lg:text-xl max-w-[650px] text-gray-300 relative z-10 bg-opacity-80 p-2 md:p-0 backdrop-blur-sm rounded-lg">
+            Build your AI-powered Resume in minutes! Our tool analyzes keywords for your target role and helps create an ATS-friendly Resume that stands out.
+          </p>
+          <div className="flex justify-center md:justify-start mt-6 md:mt-8">
+            <Link href="/dashboard">
+              <button className="mobile-button bg-gradient-to-r from-blue-500 to-indigo-600 w-44 text-white font-bold p-3 border-none rounded-lg flex justify-center hover:from-blue-600 hover:to-indigo-700 transition duration-300 transform hover:scale-105 shadow-lg">
+                Create your Resume
+              </button>
+            </Link>
+          </div>
         </div>
-        <p className="text-lg max-w-[650px] mt-4 text-gray-300 relative z-10 bg-opacity-80 p-2 sm:mb-10 md:mb-12 lg:mb-0 xl:mb-6 2xl:mb-8">
-          Build your AI-powered Resume in a few minutes! It analyzes the keywords required for the role and helps you in developing your own ATS-friendly Resume.
-        </p>
-        <Link href="/dashboard">
-          <button className="mt-6 bg-blue-500 w-44 text-white font-bold p-3 border-none rounded-lg flex justify-center hover:bg-blue-600 transition duration-300">
-            Create your Resume
-          </button>
-        </Link>
       </div>
 
-      <div className="right relative w-full md:w-1/2 mt-6 md:mt-0 z-0 sm:pl-6 md:pl-12 lg:pl-24 xl:pl-32 2xl:pl-40 flex-grow mr-4">
-        <div className="relative w-full h-[80vh]">
+      <div className="w-full md:w-1/2 order-1 md:order-2 z-0 flex justify-center items-center mb-8 md:mb-0">
+      <div className="relative w-[95%] max-w-[500px] h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] mobile-img-container">          {/* Decorative Elements */}
+          <div className="hidden sm:block absolute w-24 h-24 bg-blue-500 opacity-20 rounded-full -top-10 -right-10 animate-pulse"></div>
+          <div className="hidden sm:block absolute w-16 h-16 bg-purple-500 opacity-20 rounded-full bottom-10 -left-10 animate-pulse" style={{animationDelay: "1s"}}></div>
+          
+          {/* Main Resume Builder Image */}
           <div className="relative w-full h-full">
             <Image
               src="/resume-builder.avif"
               alt="resume builder"
               fill
               style={{ objectFit: "contain" }}
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 480px) 95vw, (max-width: 640px) 90vw, (max-width: 768px) 80vw, 50vw"
               priority
+              className="animate-float rounded-lg shadow-2xl"
             />
           </div>
-          <div className="absolute left-0 top-0 h-[80%] w-[50%]">
+          {/* Resume image - repositioned for better mobile display */}
+          <div className="absolute left-0 top-0 h-[85%] w-[55%] sm:h-[80%] sm:w-[50%]">
             <Image
               src="/my-resume.png"
               alt="resume"
               fill
               style={{ objectFit: "contain" }}
-              sizes="(max-width: 768px) 100vw, 25vw"
+              sizes="(max-width: 480px) 45vw, (max-width: 640px) 45vw, (max-width: 768px) 30vw, 25vw"
               priority
+              className="animate-floatDelayed rounded-lg shadow-xl"
             />
           </div>
         </div>
       </div>
-    </div>
+      
+      {/* Mobile-specific decorative elements */}
+      <div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-t-3xl block md:hidden"></div>
+      </main>
   );
 }
 

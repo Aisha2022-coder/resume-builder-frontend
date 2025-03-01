@@ -28,10 +28,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] overflow-x-hidden relative`}
       >
         <Navbar />
-        <div className="min-h-{89vh}">{children}</div>
+        <div className="min-h-[89vh]">{children}</div>
         <Footer />
       </body>
     </html>

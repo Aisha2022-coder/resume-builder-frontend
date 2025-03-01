@@ -53,8 +53,8 @@ export default function PersonalInfoForm({ closeModal, setIsFormSubmitted }) {
   return (
     <>
       <ToastContainer position="top-right" autoClose={2000} />
-      <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-50">
-        <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+      <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-50 p-4 overflow-y-auto">
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-full max-w-sm mx-auto my-4">
           <h2 className="text-xl font-bold mb-4">Edit Personal Info</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
@@ -101,15 +101,18 @@ export default function PersonalInfoForm({ closeModal, setIsFormSubmitted }) {
               className="w-full p-2 border rounded h-24 resize-none"
               required
             />
-            <div className="flex justify-between">
+            <div className="flex flex-col sm:flex-row justify-between gap-2 mt-4">
               <button
                 type="button"
                 onClick={closeModal}
-                className="px-4 py-2 bg-gray-500 text-white rounded"
+                className="px-4 py-2 bg-gray-500 text-white rounded w-full sm:w-auto order-2 sm:order-1"
               >
                 Cancel
               </button>
-              <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">
+              <button 
+                type="submit" 
+                className="px-4 py-2 bg-blue-500 text-white rounded w-full sm:w-auto order-1 sm:order-2"
+              >
                 Save
               </button>
             </div>

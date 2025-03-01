@@ -1,3 +1,260 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@media (min-width: 2298px) and (min-height: 676px) {
+    .custom-left {
+      left: 459px;
+    }
+    .resume-builder-offset {
+        left: 366px;
+  }
+}
+
+/* Navbar animations */
+@keyframes slideInDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .nav-item {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-item:hover::after {
+    width: 100%;
+  }
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes floatDelayed {
+  0% {
+    transform: translateY(-5px);
+
+/* Fix for Creative Template on small screens */
+@media (max-width: 480px) {
+  #resume-template h2 {
+    font-size: 1.25rem !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  #resume-template .px-3 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  #resume-template {
+    padding: 0.75rem !important;
+  }
+}
+
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-floatDelayed {
+  animation: floatDelayed 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@media (max-width: 640px) {
+  .animate-float, .animate-floatDelayed {
+    animation: none;
+  }
+}
+
+/* Enhanced responsive layout */
+@media (max-width: 768px) {
+    .min-h-\[89vh\] {
+    min-height: auto;
+    padding-bottom: 2rem;
+  }
+
+  /* Stack layout improvements */
+  .flex-col-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+  /* Better spacing for mobile */
+  .py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Center-align content on mobile */
+  .text-center-mobile {
+    text-align: center;
+  }
+  
+  /* Improved container spacing */
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Better image sizing for mobile */
+  .mobile-img-container {
+    height: 220px !important;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Mobile nav adjustments */
+  nav {
+    padding: 0.5rem 0;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .logo span {
+    font-size: 1rem !important;
+  }
+}
+
+/* Mobile image improvements */
+@media (max-width: 640px) {
+  .mobile-img-container {
+    height: 200px !important;
+    margin: 0 auto !important;
+    width: 90% !important;
+    margin-bottom: 1.5rem !important;
+    position: relative !important;
+  }
+  
+  /* Fullwidth elements on small screens */
+  .w-full-mobile {
+    width: 100% !important;
+  }
+  
+  /* Improved button spacing */
+  .mobile-button {
+    margin: 1.5rem auto !important;
+    display: block !important;
+  }
+}
+
+/* Extra small devices specific image adjustments */
+@media (max-width: 480px) {
+  .mobile-img-container {
+    height: 180px !important;
+    width: 95% !important;
+  }
+  
+  /* Better main container padding */
+  .px-4 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}
+
+/* Fix for image overlapping between 392px and 646px */
+@media (min-width: 392px) and (max-width: 646px) {
+  .mobile-img-container {
+    height: 200px !important;
+  }
+  
+  /* Adjust the resume image position to maintain overlap */
+  .mobile-img-container > div:last-child {
+    left: 0 !important;
+    top: -5px !important;
+    height: 90% !important;
+    width: 60% !important;
+  }
+}
+
+/* Fix for navbar on larger screens (1407px and above) */
+@media (min-width: 1407px) {
+  nav .max-w-7xl {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+nav .flex-grow {
+  flex-grow: 0;
+}
+
+/* Improved hover effects for buttons */
+button:hover {
+  transition: all 0.3s ease;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive text adjustments */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  p {
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Improved button text size */
+  button {
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Gradient background enhancement */
+@media (max-width: 768px) {
+  .bg-\[radial-gradient\(125\%_125\%_at_50\%_10\%\,\#000_40\%\,\#63e_100\%\)\] {
+    background: radial-gradient(100% 100% at 50% 0%, #000 40%, #63e 100%) !important;
+  }
+}
