@@ -1,8 +1,20 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkScreenSize(); // Check on mount
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
   return (
     <main className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 md:px-12 lg:px-20 min-h-[85vh] w-full relative overflow-hidden py-8 md:py-0">
       <div className="flex flex-col items-center md:items-start justify-center text-center md:text-left w-full md:w-1/2 z-10 relative order-2 md:order-1 mt-8 md:mt-0 px-4">
@@ -23,6 +35,7 @@ export default function Home() {
         </div>
       </div>
 
+      {!isMobile && (
       <div className="w-full md:w-1/2 order-1 md:order-2 z-0 flex justify-center items-center mb-8 md:mb-0">
         <div className="relative w-[95%] max-w-[500px] h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] mobile-img-container">
           <div className="hidden sm:block absolute w-24 h-24 bg-blue-500 opacity-20 rounded-full -top-10 -right-10 animate-pulse"></div>
@@ -51,6 +64,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      )}
       <div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-t-3xl block md:hidden"></div>
     </main>
   );
