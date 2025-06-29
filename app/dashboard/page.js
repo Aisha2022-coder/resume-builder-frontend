@@ -14,7 +14,7 @@ import SkillsForm from "../components/SkillsForm";
 import ProjectsForm from "../components/ProjectsForm";
 import AchievementsForm from "../components/AchievementsForm";
 import CertificationsForm from "../components/CertificationsForm";
-import AIModal from "../components/AIModal";
+// import AIModal from "../components/AIModal";
 import Image from "next/image";
 
 export default function Dashboard() {
@@ -78,7 +78,7 @@ export default function Dashboard() {
   const [openSection, setOpenSection] = useState(null);
   const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isAIModalOpen, setIsAIModalOpen] = useState(false);
+  // const [isAIModalOpen, setIsAIModalOpen] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const getSelectedTemplate = () => {
@@ -100,13 +100,13 @@ export default function Dashboard() {
     setOpenSection(section);
   };
 
-  const handleClickAIButton = () => {
-    if (isLoggedIn) {
-      setIsAIModalOpen(true);
-    } else {
-      toast.error("Please log in to use AI");
-    }
-  };
+  // const handleClickAIButton = () => {
+  //   if (isLoggedIn) {
+  //     setIsAIModalOpen(true);
+  //   } else {
+  //     toast.error("Please log in to use AI");
+  //   }
+  // };
 
   const handleViewResume = () => {
     if (!isFormSubmitted) {
@@ -331,7 +331,7 @@ export default function Dashboard() {
         </div>
       </div>
       <div className="flex flex-wrap justify-center gap-4 mt-6 mb-8">
-        <button
+        {/* <button
           onClick={handleClickAIButton}
           className="px-4 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm md:text-base bg-blue-500 text-white rounded-md w-32 sm:w-auto flex items-center gap-3"
         >
@@ -343,7 +343,7 @@ export default function Dashboard() {
             priority
           />{" "}
           AI Resume Suggestions
-        </button>
+        </button> */}
         <div>
           <ToastContainer />
         </div>
@@ -427,7 +427,7 @@ export default function Dashboard() {
           closeModal={() => setOpenSection(null)}
         />
       )}
-      <AIModal isOpen={isAIModalOpen} onClose={() => setIsAIModalOpen(false)} />
+      {/* <AIModal isOpen={isAIModalOpen} onClose={() => setIsAIModalOpen(false)} /> */}
     </>
   );
 }
