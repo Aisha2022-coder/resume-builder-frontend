@@ -331,19 +331,6 @@ export default function Dashboard() {
         </div>
       </div>
       <div className="flex flex-wrap justify-center gap-4 mt-6 mb-8">
-        {/* <button
-          onClick={handleClickAIButton}
-          className="px-4 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm md:text-base bg-blue-500 text-white rounded-md w-32 sm:w-auto flex items-center gap-3"
-        >
-          <Image
-            src="/ai.svg"
-            alt="ai"
-            width={24}
-            height={24}
-            priority
-          />{" "}
-          AI Resume Suggestions
-        </button> */}
         <div>
           <ToastContainer />
         </div>
