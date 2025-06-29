@@ -14,7 +14,6 @@ import SkillsForm from "../components/SkillsForm";
 import ProjectsForm from "../components/ProjectsForm";
 import AchievementsForm from "../components/AchievementsForm";
 import CertificationsForm from "../components/CertificationsForm";
-// import AIModal from "../components/AIModal";
 import Image from "next/image";
 
 export default function Dashboard() {
@@ -78,7 +77,6 @@ export default function Dashboard() {
   const [openSection, setOpenSection] = useState(null);
   const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [isAIModalOpen, setIsAIModalOpen] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const getSelectedTemplate = () => {
@@ -99,14 +97,6 @@ export default function Dashboard() {
     }
     setOpenSection(section);
   };
-
-  // const handleClickAIButton = () => {
-  //   if (isLoggedIn) {
-  //     setIsAIModalOpen(true);
-  //   } else {
-  //     toast.error("Please log in to use AI");
-  //   }
-  // };
 
   const handleViewResume = () => {
     if (!isFormSubmitted) {
@@ -414,7 +404,6 @@ export default function Dashboard() {
           closeModal={() => setOpenSection(null)}
         />
       )}
-      {/* <AIModal isOpen={isAIModalOpen} onClose={() => setIsAIModalOpen(false)} /> */}
     </>
   );
 }
