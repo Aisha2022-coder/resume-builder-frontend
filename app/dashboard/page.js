@@ -330,7 +330,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      {/* <div className="flex flex-wrap justify-center gap-4 mt-6 mb-8">
+      <div className="flex flex-wrap justify-center gap-4 mt-6 mb-8">
         {/* <button
           onClick={handleClickAIButton}
           className="px-4 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm md:text-base bg-blue-500 text-white rounded-md w-32 sm:w-auto flex items-center gap-3"
@@ -343,10 +343,10 @@ export default function Dashboard() {
             priority
           />{" "}
           AI Resume Suggestions
-        </button> 
+        </button> */}
         <div>
           <ToastContainer />
-        </div> */}
+        </div>
         <button
           onClick={handleViewResume}
           className={`px-4 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm md:text-base bg-green-500 text-white rounded-md w-32 sm:w-auto flex items-center gap-3`}
